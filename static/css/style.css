@@ -372,8 +372,8 @@ nav a:focus {
 /* VARIABLE = SOCIAL MEDIA SELECTED */
 /* In the future this will be handled with a JS script */
 
-nav a:hover .instagram,
-nav a:focus .instagram {
+nav.instagram a:hover,
+nav.instagram a:focus {
     color: var(--tertiary-color-instagram);
 }
 
