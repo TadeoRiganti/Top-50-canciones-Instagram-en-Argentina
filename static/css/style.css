@@ -111,14 +111,6 @@
     --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 
     
-  
-    /* NOTE TO MY FUTURE SELF: 
-    The following settings are from the Kevin's Powell project.
-    It's imperative to adjust them, using a more robust system; ideally using the dynamic variations 'Inter' font allows. */
-
-    /* --font-size-small: clamp(1.13rem, calc(1.06rem + 0.33vw), 1.31rem);
-    --font-size-large: clamp(2.33rem, calc(1.7rem + 3.15vw), 4.14rem);
-    --font-size-extra-large: clamp(2.8rem, calc(1.85rem + 4.74vw), 5rem); */
      
     /*
     NOTE FOR FUTURE ME:
@@ -145,6 +137,14 @@
 
      --font-size-extra-large: 45px; 
      --line-height-extra-large: calc(var(--font-size-extra-large) * 1.05);
+
+        /* NOTE TO MY FUTURE SELF: 
+    The following settings are from the Kevin's Powell project.
+    It's imperative to adjust them, using a more robust system; ideally using the dynamic variations 'Inter' font allows. */
+
+    --font-size-small: clamp(1.13rem, calc(1.06rem + 0.33vw), 1.31rem);
+    --font-size-large: clamp(2.33rem, calc(1.7rem + 3.15vw), 4.14rem);
+    --font-size-extra-large: clamp(2.8rem, calc(1.85rem + 4.74vw), 5rem);
 
 
      /* |.... LAYOUT SETTINGS */
