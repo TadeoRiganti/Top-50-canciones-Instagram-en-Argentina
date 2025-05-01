@@ -98,6 +98,10 @@
     --color-scheme: light;
     /* --color-scheme: dark; */
 
+    /* |.... EXTERNAL BRAND COLORS */
+
+    --instagram-gradient: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);;
+
 
     /* |.... TYPOGRAPHY */
 
@@ -418,6 +422,10 @@ table tbody tr a {
 .high-light {
     padding: var(--spacing-small);
     border-radius: var(--all-corners);
+}
+
+mark {
+    background-color: var(--primary-color);
 }
 
 /* @media (prefers-color-scheme: dark) {
