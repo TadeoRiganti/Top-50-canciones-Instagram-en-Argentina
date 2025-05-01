@@ -183,6 +183,8 @@
 }
 
 
+
+
 /* -------------------------------------------------
 |.. RESET BROWSER STYLE */
 
@@ -346,7 +348,7 @@ a.logo{
 
 .material-symbols-outlined {
     font-variation-settings:
-    'FILL' 1,
+    'FILL' 0,
     'wght' 600,
     'GRAD' 0,
     'opsz' 24
@@ -370,7 +372,10 @@ nav ul {
 a:hover,
 a:focus {
     color: inherit;
-    text-decoration: underline;
+}
+
+nav a > span {
+    vertical-align: middle;
 }
 
 /* TABLES */
