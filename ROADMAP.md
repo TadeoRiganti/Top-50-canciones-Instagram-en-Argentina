@@ -1,11 +1,11 @@
 # Roadmap del Proyecto Top 50 Canciones Populares
 
-Este documento describe las funcionalidades futuras y las mejoras planificadas para el proyecto del Top 50 de canciones populares de [Nombre de tu Red Social].
+Este documento describe las funcionalidades futuras y las mejoras planificadas para el proyecto del Top 50 de canciones populares de Instagram.
 
 ## Fase 1: Funcionalidades Base
 
 * [ ] Mostrar una tabla con el título y autor de las 50 canciones más populares obtenidas de la API.
-* [ ] Implementación del backend en Python Anywhere para interactuar con la API de [Nombre de tu Red Social] utilizando un token de acceso seguro.
+* [ ] Implementación del backend en Python Anywhere para interactuar con la API de Instagram utilizando un token de acceso seguro.
 * [ ] Despliegue del frontend utilizando GitHub Pages.
 
 ## Fase 2: Mejoras de Seguridad y Backend
