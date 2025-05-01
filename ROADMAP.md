@@ -23,8 +23,8 @@ Este documento describe las funcionalidades futuras y las mejoras planificadas p
 ## Fase 4: Funcionalidades Adicionales (Posibles)
 
 * [ ] **Enlace** Mostrar un enlace a la cancion:
-     * [ ] **Enlace de búsqueda** de Google (Función).
-     * [ ] **Enlace al video** de Youtube (API).
+     * [ ] **v1) Enlace de búsqueda** de Google (Función).
+     * [ ] **v2) Enlace al video** de Youtube (API).
 * [ ] **Búsqueda y Filtrado:** Permitir a los usuarios buscar canciones o filtrar por autor dentro de la tabla.
 * [ ] **Paginación:** Si usuarios reportan una mala experiencia, implementar paginación para no mostrar una tabla demasiado larga.
 * [ ] **Detalles Adicionales:** Mostrar información adicional sobre cada canción (si la API lo proporciona).
