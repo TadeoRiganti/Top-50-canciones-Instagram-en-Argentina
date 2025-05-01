@@ -100,7 +100,8 @@
 
     /* |.... EXTERNAL BRAND COLORS */
 
-    --instagram-gradient: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    --instagram-gradient: linear-gradient(190deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 60%, rgba(252, 176, 69, 1) 100%);
+    --tertiary-color-instagram: rgba(131, 58, 180, 1);
 
 
     /* |.... TYPOGRAPHY */
@@ -228,9 +229,9 @@ h1 {
     background-color: var(--tertiary-color);
 }
 
-.brand-color-instagram{
+.brand-color.instagram {
     background: #833AB4;
-    background: linear-gradient(199deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    background: var(--instagram-gradient);
 }
 
 .white-text-with-contrast-shadow {
@@ -368,6 +369,13 @@ nav a:focus {
     text-decoration: underline;
 }
 
+/* VARIABLE = SOCIAL MEDIA SELECTED */
+/* In the future this will be handled with a JS script */
+
+nav a:hover .instagram,
+nav a:focus .instagram {
+    color: var(--tertiary-color-instagram);
+}
 
 /* TABLES */
 
@@ -409,8 +417,15 @@ table td > img {
 
 table tbody tr a {
     font-weight: 700;
-    color :#00A650;
+    color :var(--tertiary-color);
     text-decoration: underline;
+}
+
+/* VARIABLE = SOCIAL MEDIA SELECTED */
+/* In the future this will be handled with a JS script */
+
+table.instagram > tbody tr a  {
+    color: var(--tertiary-color-instagram);
 }
 
 
@@ -435,8 +450,11 @@ table tbody tr a {
     border-radius: var(--all-corners);
 }
 
-mark {
-    background-color: var(--primary-color);
+
+/* Alignment */
+
+.center {
+    text-align: center;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -872,7 +890,13 @@ aside h2 {
 }
 /* NOTE: Continue developing in 'dev-aside-toc' */
 
+/* |.... FOOTER */
 
+/* |...... LAYOUT */
+
+footer {
+    padding-block: var(--spacing-extra-small);
+}
 
 
 /* =================================================
