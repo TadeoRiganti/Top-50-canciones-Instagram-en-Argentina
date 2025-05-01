@@ -100,8 +100,8 @@
 
     /* |.... EXTERNAL BRAND COLORS */
 
-    --instagram-gradient: linear-gradient(190deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 60%, rgba(252, 176, 69, 1) 100%);
-    --tertiary-color-instagram: rgba(131, 58, 180, 1);
+    --social-media-gradient: linear-gradient(190deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 60%, rgba(252, 176, 69, 1) 100%);
+    --tertiary-color-social-media: rgba(131, 58, 180, 1);
 
 
     /* |.... TYPOGRAPHY */
@@ -220,6 +220,7 @@ h1 {
     color: var(--secondary-color);
 }
 
+
 .dark-theme {
     background-color: var(--secondary-color);
     color: var(--primary-color);
@@ -229,9 +230,9 @@ h1 {
     background-color: var(--tertiary-color);
 }
 
-.brand-color.instagram {
-    background: #833AB4;
-    background: var(--instagram-gradient);
+.brand-color.social-media {
+    background: var(--tertiary-color-social-media);
+    background: var(--social-media-gradient);
 }
 
 .white-text-with-contrast-shadow {
@@ -334,9 +335,10 @@ img {
 }
 /* Keeps images from overflowing in the X axis */
 
-a .logo{
+a.logo{
     max-width: 250px;
     color: inherit;
+    font-weight: bold;
     text-decoration: none;
 }
 
@@ -359,22 +361,14 @@ nav ul {
 }
   
 :is(nav, ul, ol) a {
-    color: inherit;
+    color: var(--secondary-color);
     text-decoration: none;
 }
   
-nav a:hover,
-nav a:focus {
-    color: var(--tertiary-color);
+a:hover,
+a:focus {
+    color: inherit;
     text-decoration: underline;
-}
-
-/* VARIABLE = SOCIAL MEDIA SELECTED */
-/* In the future this will be handled with a JS script */
-
-nav.instagram a:hover,
-nav.instagram a:focus {
-    color: var(--tertiary-color-instagram);
 }
 
 /* TABLES */
@@ -417,15 +411,8 @@ table td > img {
 
 table tbody tr a {
     font-weight: 700;
-    color :var(--tertiary-color);
+    color: inherit;
     text-decoration: underline;
-}
-
-/* VARIABLE = SOCIAL MEDIA SELECTED */
-/* In the future this will be handled with a JS script */
-
-table.instagram > tbody tr a  {
-    color: var(--tertiary-color-instagram);
 }
 
 
@@ -974,6 +961,18 @@ model-viewer .annotation {
     aspect-ratio: 1 / 2;
 }
 
+
+/* |...... SCRIPT SOCIAL MEDIA BRAND COLORS */
+
+/* |.... UTILITY CLASSES */
+
+/* |...... AESTHETHIC CLASSES */
+/* For every accent I'm using the property 'Inherit' wich takes the value from the parent. This way, the script only has to change the ID of the body in order to change colors.*/
+
+body#social-media,
+body#social-media a:hover {
+    color: var(--tertiary-color-social-media);
+}
 
 
 
