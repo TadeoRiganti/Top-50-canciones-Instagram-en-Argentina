@@ -1,0 +1,936 @@
+/* TABLE OF CONTENTS:
+
+|| GENERAL STYLES
+|.. Variables
+|.... Color Palette
+|.... Typography
+|.... Layout settigns
+|.. Reset browser style
+|.. Color Palette
+|.... Utility classes
+|...... Aesthetic classes
+|.. Animation
+|.. Elevations
+|.. Typography
+|.... Utility classes
+|...... Aesthetic classes
+|.. Elements
+|.... Utility classes
+|...... Aesthetic classes
+|...... Layout classes
+
+|| Layout
+|.. General rules
+|.. Breakout-grid
+|.... Layout classes
+|.... Adaptations
+|...... Blog-page
+|...... Wiki-page
+|.. Holy-grail layout
+|.... Responsive queries
+|...... Tablet
+|...... Desktop PC
+|.... Adaptations
+|...... Blog-page
+|...... Wiki-page
+
+|| Sitewide
+|.. Header
+|.... Principal navigation bar
+|.... Secondary navigation bar
+|.. Main
+|.. Aside
+|.... Sidebar
+|...... Table of contents
+|.. Footer
+
+|| Components
+|.. Model-viewer
+|.... Utility classes
+|...... Layout classes
+
+
+• Protip: You can navigate through principal sections looking for '||' (Ctrl+F). 
+
+• Notes: 
+
+    1) Instead of just gropuing "Utility classes" under that name, I'll group them in a semantic way**, by their types:
+        - Aesthetic classes
+        - Layout classes
+        - Spacing classes
+        
+    2) In the future, I'll reorganize it to complain with the BEM methodology.
+
+• References:
+
+  *) "Organizing your CSS", a guide by MDN: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Organizing
+
+  **) "The 3 Types of CSS Utility Classes", by JamesKerr: https://www.jameskerr.blog/posts/3-types-of-css-utility-classes/
+
+*/
+
+
+
+
+/* =================================================
+|| GENERAL STYLES */
+
+/* -------------------------------------------------
+|.. VARIABLES */
+
+:root {
+
+    /* |.... COLOR PALETTE */
+
+    --primary-color:    white;
+    --secondary-color:  #252525;
+    --tertiary-color:   #00A650;
+    
+    --error-color:      #ba1a1a;
+    --color-neutral-99: GhostWhite;
+    --color-neutral-95: hsl(216, 8%, 95%);
+    --color-neutral-80: LightGrey;
+    --color-neutral-60: DarkGrey;
+    --color-neutral-50: hsl(0, 0%, 50%);
+    --color-neutral-40: DimGrey;
+    --color-neutral-30: hsl(0, 0%, 30%);
+
+    --color-scheme: light;
+    /* --color-scheme: dark; */
+
+
+    /* |.... TYPOGRAPHY */
+
+    --font-size-extra-large-font-family: 'Bebas Neue', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+    --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  
+    /* NOTE TO MY FUTURE SELF: 
+    The following settings are from the Kevin's Powell project.
+    It's imperative to adjust them, using a more robust system; ideally using the dynamic variations 'Inter' font allows. */
+
+    /* --font-size-small: clamp(1.13rem, calc(1.06rem + 0.33vw), 1.31rem);
+    --font-size-large: clamp(2.33rem, calc(1.7rem + 3.15vw), 4.14rem);
+    --font-size-extra-large: clamp(2.8rem, calc(1.85rem + 4.74vw), 5rem); */
+     
+    /*
+    NOTE FOR FUTURE ME:
+    FIRST I'll find the sizes that works well on desktop Full HD.
+    SECOND I'll find the sizes that works best on movile xs.
+    THIRD: I'll transform those values to 'rem' and then in a clamp formula
+    https://clamp.font-size.app/ */
+
+    /* NOTE 2: Althought I think body size (22px) is too big, look up this site font sizes https://www.freecodecamp.org/news/how-to-make-a-dynamic-table-of-contents-in-javascript/ 
+    
+    NOTE 3: Actual values are derived from Material system design. */
+
+     --font-size-extra-small: 14px;
+     --line-height-extra-small: calc(var(--font-size-extra-small) * 1.15);
+
+     --font-size-small: 16px;
+     --line-height-small: calc(var(--font-size-small) * 1.5);
+
+     --font-size-medium: 22px; 
+     --line-height-medium: calc(var(--font-size-medium) * 1.27);
+
+     --font-size-large: 32px;
+     --line-height-large: calc(var(--font-size-large) * 1.33);
+
+     --font-size-extra-large: 45px; 
+     --line-height-extra-large: calc(var(--font-size-extra-large) * 1.05);
+
+
+     /* |.... LAYOUT SETTINGS */
+
+     /* Spacing */
+    --spacing-extra-small: 1em;
+    --spacing-small: 1rem;
+    --spacing-medium: 1.5rem;
+    --spacing-large: 2rem;
+    --spacing-extra-large: 5rem;
+
+    /* Breakout-grid layout */
+    /* --grid-max-width: 80rem; */
+    --grid-max-width: 75rem;
+    --padding-inline: var(--spacing-small);
+
+    /* Holy-grid layout */
+    --gap-main-content: var(--spacing-large);
+    --aside-width: clamp(12rem, 20rem, 10svw);
+   
+    
+
+    /* |.... STYLES */
+
+    /* Shapes */
+
+    --radius: .5rem;
+    --small-radius: calc(var(--radius) / 2);
+    --large-radius: calc(var(--radius) * 2);
+
+    /* Preset corners */
+
+    --all-corners: var(--radius);
+    --left-corners: var(--radius) 0 0 var(--radius);
+    --right-corners: 0 var(--radius) var(--radius) 0;
+}
+
+
+/* -------------------------------------------------
+|.. RESET BROWSER STYLE */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+h1 {
+    font-weight: normal;
+    /* Alredy using a display font for h1 title, so no additional weight
+    is needed to look as a display font. */
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/* -------------------------------------------------
+|.. COLOR PALETTE */
+
+/* |.... UTILITY CLASSES */
+
+/* |...... AESTETHIC CLASSES */
+
+.light-theme {
+    background-color: var(--primary-color);
+    color: var(--secondary-color)
+}
+
+.bg-tonal {
+    background-color: var(--color-neutral-95);
+    color: var(--secondary-color);
+}
+
+.dark-theme {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.brand-color {
+    background-color: var(--tertiary-color);
+}
+
+/* -------------------------------------------------
+|.. ANIMATIONS */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+}
+
+
+/* -------------------------------------------------
+|.. TYPOGRAPHY */
+
+/* Display */
+
+.bebas-neue-regular {
+    font-family: 'Bebas Neue', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Content */
+
+.inter-400 {
+  font-family: "Inter", 'Segoe UI', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+/* Notes: 
+    <uniquifier>: Use a unique and descriptive class name
+    <weight>: Use a value from 100 to 900
+*/
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
+}
+
+caption {
+    font-style: italic;
+}
+
+
+/* |.... UTILITY CLASSES */
+
+/* |...... AESTETHICS CLASSES */
+
+.site-title {
+    font-family: var(--font-size-extra-large-font-family);
+    font-size: var(--font-size-extra-large);
+    line-height: var(--line-height-extra-large);
+    text-transform: uppercase;
+}
+  
+.section-title {
+    font-size: var(--font-size-large);
+    line-height: var(--line-height-large);
+}
+
+
+/* -------------------------------------------------
+|.. ELEMENTS */
+
+html {
+    color-scheme: var(--color-scheme);
+}
+
+:is(ul, ol) {
+    list-style: inside;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure {
+    margin: 0;
+}
+
+
+/* IMAGES */
+
+img {
+    max-width: 100%;
+    display: block;
+}
+/* Keeps images from overflowing in the X axis */
+
+a .logo{
+    max-width: 250px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 600,
+    'GRAD' 0,
+    'opsz' 24
+}
+/* Default setting for OUTLINED icons */
+
+
+/* NAVIGATION */
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+  
+:is(nav, ul, ol) a {
+    color: inherit;
+    text-decoration: none;
+}
+  
+nav a:hover,
+nav a:focus {
+    color: var(--tertiary-color);
+    text-decoration: underline;
+}
+
+
+/* TABLES */
+
+table {
+    margin: 30px 0px;
+    width: 100%;
+    margin-bottom: 1rem;
+    vertical-align: top;
+}
+
+table th,
+table td {
+    padding: 8px; 
+    text-align: left;
+}
+
+table th {
+    border-bottom: 2px solid var(--color-neutral-80);
+}
+
+table td {
+    border-bottom: 1px solid var(--color-neutral-95);
+}
+
+table td > img {
+    width: clamp(32px, 64px, 10vh);
+}
+
+
+/* RESPONSIVE */
+
+ @media (max-width: 720px) {
+    table {
+        margin: 0 auto;
+        display: table;
+    }
+}
+ /*Allows to overflow in small sizes, preventing a displacement of the general layout */
+
+table tbody tr a {
+    font-weight: 700;
+    color :#00A650;
+    text-decoration: underline;
+}
+
+
+/* |.... UTILITY CLASSES */
+
+/* |...... AESTHETIC CLASSES */
+
+/* Coloration */
+
+.call-to-action,
+.bg-tertiary {
+    background: var(--tertiary-color);
+}
+
+.high-light,
+.bg-secondary {
+    background: var(--color-neutral-95);
+}
+
+.high-light {
+    padding: var(--spacing-small);
+    border-radius: var(--all-corners);
+}
+
+/* @media (prefers-color-scheme: dark) {
+    .high-light,
+    .bg-secondary {
+      background-color: var(--color-neutral-30);
+    }
+} */
+/* This should fix the contrast issue when a dark color-scheme is applied.
+
+• Notes:
+    It doesn't work as it own, because color-scheme works with OS preference**, not the application itself. So I suppose this has to be fixed with JS, or implement this feature in a different way.
+
+• References: 
+    *) https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme#styling_based_on_color_schemes
+    
+    **) https://github.com/microsoft/vscode/issues/176698
+*/
+
+
+/* Containers */
+
+.card {
+    --radius: var(--large-radius);
+    --all-corners: var(--radius);
+
+    background-color: var(--primary-color);
+    border-radius: var(--all-corners);
+    padding: var(--spacing-large);
+    margin: 0;
+}
+
+.description  {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+/* Adds a gap at the top of each element */
+
+.product {
+    display: grid;
+}
+
+@media (min-width: 940px) {
+     .product {
+       grid-template-columns: 1fr 1fr;
+       gap: 2rem;
+    }
+}
+
+@media (min-width: 720px) {
+    body.landing-page .product {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+   }
+}
+/* As landing-pages have no asides, breakpoint is different.
+I would love to use variable to avoid this, but apparently
+I can't use them to set dynamic breakpoints. So I'll flag it as
+a quick-fix. */
+
+/* Elevations */
+
+.elevation-1 {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.elevation-2 {
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+}
+
+.elevation-3 {
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Images */
+
+.icon--big {
+    font-size: 36px; 
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 700,
+    'GRAD' 0,
+    'opsz' 36
+}
+/* Enlarge icons */
+
+
+/* |...... LAYOUT CLASSES */
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.even-columns {
+    display: flex;
+    gap: 1rem;
+  }
+
+
+/* |...... SPACING CLASSES */
+
+.section-padding {
+    padding-block: var(--spacing-medium);
+}
+
+
+
+
+/* =================================================
+|| LAYOUT */
+
+/* -------------------------------------------------
+|.. GENERAL RULES */
+
+:is(.flow, section, article) > * + * {
+    margin-block-start: var(--spacing-extra-small, 1em);
+}
+/* Adds an extra margin at the top of each element */
+
+section {
+    padding-block: var(--spacing-medium);
+}
+
+body.landing-page section {
+    padding-block: var(--spacing-extra-large);
+} 
+
+
+/* -------------------------------------------------
+|.. BREAKOUT GRID LAYOUT
+
+    Notes:
+    Based on 'Breakout grid' (SMOL CSS) adaptation by Kevin Powell*
+    *) References::after
+        - Youtube: https://www.youtube.com/watch?v=c13gpBrnGEw
+        - Codepen: https://codepen.io/kevinpowell/pen/ExrZrrw
+*/
+
+.content-grid {
+    
+    --breakout-max-width: var(--grid-max-width);
+    /* Maximum width size for the breakout container */
+       
+    --content-max-width: var(--breakout-max-width) * 0.75;
+    /* Calculates the content's width*/
+      
+    --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
+    /* Calculates the relative size of each extra space of the breakout width size: Substract the content width of the breakout width and divide it by half for each gutter on the sides */
+    
+    display: grid;
+    grid-template-columns:
+      [full-width-start] minmax(var(--padding-inline), 1fr)
+      [breakout-start] minmax(0, var(--breakout-size))
+      [content-start] min(
+        100% - (var(--padding-inline) * 2),
+        var(--content-max-width)
+      )
+      [content-end]
+      minmax(0, var(--breakout-size)) [breakout-end]
+      minmax(var(--padding-inline), 1fr) [full-width-end];
+}
+
+.content-grid > :not(.breakout, .full-width),
+.full-width > :not(.breakout, .full-width) {
+    grid-column: content;
+}
+    
+.content-grid > .breakout {
+    grid-column: breakout;
+}
+    
+.content-grid > .full-width {
+  grid-column: full-width;
+    
+  display: grid;
+  grid-template-columns: inherit;
+}
+/* Allows to use the grid of it's PARENT container */
+    
+
+/* |.... UTILITY CLASSES */
+
+/* |...... LAYOUT CLASSES */
+
+img.full-width {
+    width: 100%;
+    max-height: 45vh;
+    object-fit: cover;
+}
+/* Makes an image to extend full width */
+
+
+/* |.... ADAPTATIONS  (Quick-fix)*/
+
+/* |...... BLOG-PAGE LAYOUT */
+
+body.blog-page .content-grid {
+    --content-max-width: var(--breakout-max-width) * 0.5;
+}
+/* Adjust the container width size in relation to the sidebar */
+
+
+/* |...... WIKI-PAGE LAYOUT */
+
+body.wiki-page .content-grid {
+    --content-max-width: var(--breakout-max-width) * 0.625;
+}
+/* Adjust the container width size in relation to the sidebar */
+
+
+/* -------------------------------------------------
+|.. HOLY-GRAIL LAYOUT */
+
+.holy-grail {
+    max-width: var(--grid-max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template: 
+    "sidebar" 
+    "main" 
+    "ads";
+}
+/* In order to properly work, there has to be a <div> containing
+the main and at least one asides element. */
+
+#cover {
+    grid-area: cover;
+}
+  
+.sidebar {
+    grid-area: sidebar;
+    width: var(--aside-width);
+}
+  
+.article {
+    grid-area: main;
+}
+  
+.ads {
+    grid-area: ads;
+    width: var(--aside-width);
+}
+
+
+/* |.... RESPONSIVE QUERIES */
+
+/* |...... TABLET */
+
+@media (min-width: 640px) {
+    .holy-grail {
+      grid-template:
+      "sidebar    main"
+      "ads        main" / 
+      auto        1fr;
+    }
+  }
+  
+  /* |...... DESKTOP PC */
+  
+  @media (min-width: 960px) {
+    .holy-grail {
+      grid-template: 
+      "sidebar   main    ads" /
+      auto       1fr     auto ;
+    }
+  }
+
+ /* |.... ADAPTATIONS */
+  
+body.wiki-page :is(.ads) {
+    display: none;
+}
+
+
+
+
+/* =================================================
+|| SITEWIDE */
+
+/* -------------------------------------------------
+|.. HEADER */
+
+/* |.... PRINCIPAL NAVIGATION BAR */
+
+.primary-header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: max(5vw, 1rem);
+}
+
+.primary-header {
+    padding-block: 1rem;
+    margin-block-end: auto;
+    background: var(--clr-accent-200);
+    color: var(--clr-primary-500);
+}
+
+.primary-header__layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* |.... SECONDARY NAVIGATION BAR */
+
+
+/* -------------------------------------------------
+|.. MAIN */
+
+/* |.... COVER */
+
+#cover .container {
+    /* margin: 2rem auto; */
+    display: grid;
+    gap: calc(var(--spacing-extra-small) * 1.5);
+}
+
+@media (min-width: 640px) {
+    #cover .container {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 2rem;
+    }
+}
+/* 'grid-auto-flow' allows the container '.description' to grow
+if there is no image in the container '.display' */
+
+#cover img {
+    height: 100%;
+    width: 100%;
+    border-radius: var(--all-corners);
+    object-fit: cover;
+}
+/* By default, the display image will match the size of its parent container. */
+
+
+#cover .description {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    gap: 1rem;    
+}
+
+#cover .description p {
+    font-size: var(--font-size-medium);
+}
+
+
+/* |...... UTILITARIAN CLASSES */
+
+/* |........AESTHETIC CLASSES */
+
+#cover.clipart img {
+    object-fit: contain;
+}
+/* Use it when you don't want display image to clip. */
+
+
+/* |.... CONTENT  */
+
+.container.holy-grail {
+    margin-top: var(--gap-main-content);
+}
+/* Separates the article's content from its cover */
+
+
+/* |...... ARTICLE */
+
+article section:first-child {
+    padding-block-start: 0px;
+}
+/* (Quick-fix) Removes top padding to the first section inside the article's main content*/
+
+@media (min-width: 640px) {
+    :is(body.blog-page, body.wiki-page) .main :is(section, .full-width) {
+        border-radius: var(--left-corners);
+    }
+}
+/* In tablet size viewport, only one side of the elements get in contact with the visor side.
+The rigth side doesn't get any border radius. */
+
+@media (min-width: 960px) {
+    body.blog-page .main :is(section, .full-width) {
+        border-radius: var(--all-corners);
+    }
+}
+/* In a blog-page, main content is wrapped by 2 asides (Holy-grail layout).
+This rule round their corners to hide this error in design (negative aspect of the "breakout-grid"). */
+
+@media (min-width: 1280px) {
+    body.wiki-page .main :is(section, .full-width) {
+        border-radius: var(--all-corners);
+    }
+}
+/* In a wiki-page, there is a dashboard layout, so full-width elements reach the right side
+at a different breakpoint compared to blog-page layout. */
+
+
+/* |...... ASIDE */
+
+aside > * {
+    font-size: var(--font-size-extra-small);
+}
+/* Sets a default base size. It can be overwritten for later rule developments. */
+
+aside h2 {
+    font-size: var(--font-size-extra-small);
+    text-transform: uppercase;
+}
+
+
+/* |.... SIDEBAR */
+
+/* |...... TABLE OF CONTENTS */
+
+@media (max-width: 640px) {
+    .toc-container {
+        display: none;
+    }
+}
+/* NOTE: Continue developing in 'dev-aside-toc' */
+
+
+
+
+/* =================================================
+|| COMPONENTS */
+
+/* -------------------------------------------------
+|.. MODEL-VIEWER */
+
+:not(:defined) > * {
+    display: none;
+}
+
+model-viewer {
+    height: inherit;
+    width: inherit;
+}
+/* Chain its size to the wrapper. */
+
+
+/* |.... UTILITY CLASSES */
+
+/* |...... AESTHETHIC CLASSES */
+
+model-viewer .hotspot{
+    width: 0px;
+    height: 0px;
+    border: none;
+}
+/* Hide hotspot element as default */
+
+model-viewer button {
+    --min-hotspot-opacity: 0;
+}
+/* Hide annotation element as default */
+
+model-viewer .annotation {
+    border-radius: var(--all-corners);
+    border: none;
+    box-sizing: border-box;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    max-width: 250px;
+    text-align: left;
+    overflow-wrap: break-word;
+    padding: 0.5em 1em;
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    transform: translate3d(-50%, -50%, 90);
+}
+/* Change max-with with clamp like font treatment */
+
+
+/* |...... LAYOUT CLASSES */
+
+.wrapper > model-viewer {
+    aspect-ratio: 1 / 1;
+}
+
+.wider > .content > .wrapper > model-viewer {
+    aspect-ratio: 3 / 2;
+}
+
+.wider > .content > .wrapper > model-viewer {
+    aspect-ratio: 2 / 1;
+}
+
+.narrow > .content > .wrapper > model-viewer {
+    aspect-ratio: 2 / 3;
+}
+
+.narrower > .content > .wrapper > model-viewer {
+    aspect-ratio: 1 / 2;
+}
+
+
+
+
