@@ -477,7 +477,7 @@ table tbody tr a {
 
     background-color: var(--primary-color);
     border-radius: var(--all-corners);
-    padding: var(--spacing-large);
+    padding: var(--spacing-extra-small);
     margin: 0;
 }
 
@@ -504,6 +504,10 @@ table tbody tr a {
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
    }
+
+   .card {
+    padding: var(--spacing-medium);
+    }
 }
 /* As landing-pages have no asides, breakpoint is different.
 I would love to use variable to avoid this, but apparently
