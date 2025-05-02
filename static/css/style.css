@@ -443,7 +443,7 @@ table td > img {
 table td:has(span),
 table td:first-child {
     width: 1%;
-    white-space: ;
+    white-space: nowrap;
 }
 
 
