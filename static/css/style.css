@@ -398,7 +398,7 @@ nav a > span {
 
 table {
     margin: 30px 0px;
-    width: 100%;
+    width: auto;
     margin-bottom: 1rem;
     vertical-align: top;
 }
@@ -407,6 +407,11 @@ table th,
 table td {
     padding: 8px; 
     text-align: left;
+}
+
+table th:first-child,
+table td:first-child {
+    text-align: center;
 }
 
 table th {
@@ -421,6 +426,26 @@ table td > img {
     width: clamp(32px, 64px, 10vh);
 }
 
+table td:has(span),
+table td:first-child {
+    width: 1%;
+    white-space: ;
+}
+
+
+
+span.display-image {
+    color: rgba(255, 255, 255, 0);
+    font-size: var(--font-size-large);
+    padding: 8px;
+    border-radius: 8px;
+    background: var(--social-media-gradient);
+
+}
+
+span.display-image:hover {
+    color: rgba(255, 255, 255, 0.5);
+}
 
 /* RESPONSIVE */
 
