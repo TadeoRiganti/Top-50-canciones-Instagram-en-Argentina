@@ -480,6 +480,11 @@ table tbody tr a {
 
 /* |.... UTILITY CLASSES */
 
+span.material-symbols-outlined.button-icon {
+    border-radius: 8px;
+    padding: 12px;
+}
+
 /* |...... AESTHETIC CLASSES */
 
 /* Coloration */
