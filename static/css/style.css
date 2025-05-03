@@ -430,10 +430,9 @@ table th {
     border-bottom: 2px solid var(--color-neutral-80);
 }
 
-table td {
+table tr:not(:last-child) {
     border-bottom: 1px solid var(--color-neutral-95);
 }
-
 
 
 table td > img {
@@ -478,11 +477,12 @@ button:has(.material-symbols-outlined.button-icon) {
 
 }
 
-div:has(table) {
+ /*Allows to overflow in small sizes, preventing a displacement of the general layout */
+/* div:has(table) {
     max-width: 100%; 
     overflow-x: auto;
-} 
- /*Allows to overflow in small sizes, preventing a displacement of the general layout */
+}  */
+/* Deprecated */
 
 table tbody tr a {
     font-weight: 700;
@@ -563,6 +563,10 @@ This way, small mobile devices won't notice display issues */
     padding: var(--spacing-extra-small);
     margin: 0;
 }
+
+div.card:has(table)  {
+    padding-top: 0px;
+} 
 
 .description  {
     display: flex;
