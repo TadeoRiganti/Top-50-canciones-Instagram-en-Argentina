@@ -433,9 +433,16 @@ table tbody tr:hover {
     background-color: var(--color-neutral-95);
 }
 
+table th > span.material-symbols-outlined{
+    color: red;
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
 /* Ranking table */
 
-#ranking-table :is(td.rank, td.album, td.views, td.link) {
+#ranking-table :is(td.rank, td.album, td.view, td.link) {
     width: 1%;
     white-space: nowrap;
 }
