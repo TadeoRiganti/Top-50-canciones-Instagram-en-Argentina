@@ -397,7 +397,6 @@ nav a > span {
 /* TABLES */
 
 table {
-    margin: 30px 0px;
     width: auto;
     margin-bottom: 1rem;
     vertical-align: top;
@@ -565,7 +564,7 @@ This way, small mobile devices won't notice display issues */
 }
 
 div.card:has(table)  {
-    padding-top: 0px;
+    padding: .5em var(--spacing-medium);
 } 
 
 .description  {
