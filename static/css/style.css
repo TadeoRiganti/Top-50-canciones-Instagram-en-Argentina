@@ -564,7 +564,7 @@ This way, small mobile devices won't notice display issues */
 }
 
 div.card:has(table)  {
-    padding: .5em var(--spacing-medium);
+    padding: .5em var(--spacing-extra-small);
 } 
 
 .description  {
