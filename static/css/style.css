@@ -403,16 +403,6 @@ table {
     border-collapse: collapse;
 }
 
-
-/* table tbody tr:nth-child(even) {
-    background-color: var(--color-neutral-99);
-  } */
-
-table tbody tr:hover {
-    border-style: none;
-    background-color: var(--color-neutral-95);
-}
-
 table th,
 table td {
     
@@ -438,15 +428,28 @@ table td > img {
     width: clamp(32px, 64px, 10vh);
 }
 
-table td:has(span),
-table td:first-child {
+table tbody tr:hover {
+    border-style: none;
+    background-color: var(--color-neutral-95);
+}
+
+/* Ranking table */
+
+#ranking-table :is(td.rank, td.album, td.views, td.link) {
     width: 1%;
     white-space: nowrap;
 }
 
+tr:hover > td.album span.display-image {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+td.album span {
+    cursor: pointer;
+}
 
 
-span.display-image {
+td.album > span.display-image {
     color: rgba(255, 255, 255, 0);
     font-size: var(--font-size-large);
     padding: 8px;
@@ -455,11 +458,7 @@ span.display-image {
 
 }
 
-span.display-image:hover {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-button:has(.material-symbols-outlined.button-icon) {
+td.link button {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -563,7 +562,7 @@ This way, small mobile devices won't notice display issues */
     margin: 0;
 }
 
-div.card:has(table)  {
+#ranking-table  {
     padding: .5em var(--spacing-extra-small);
 } 
 
