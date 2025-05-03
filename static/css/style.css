@@ -515,7 +515,7 @@ span.material-symbols-outlined.button-icon {
 Therefore, before having overflowing issues, the link column will hide.
 This way, small mobile devices won't notice display issues */
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
     span.material-symbols-outlined.button-icon {
         display: none;
     }
