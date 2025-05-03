@@ -50,7 +50,3 @@ Ver el archivo [`ROADMAP.md`](https://github.com/TadeoRiganti/Top-50-canciones-I
 <!-- ## Contribución
 
 Las contribuciones son bienvenidas. Por favor, revisa las [guías de contribución](CONTRIBUTING.md) (si las creas) para obtener más información sobre cómo puedes ayudar. --->
-
-## Licencia
-
-MIT Licensce
