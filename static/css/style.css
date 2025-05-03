@@ -358,7 +358,7 @@ img {
 a.logo{
     max-width: 250px;
     color: inherit;
-    font-weight: bold;
+    font-weight: bolder;
     text-decoration: none;
 }
 
