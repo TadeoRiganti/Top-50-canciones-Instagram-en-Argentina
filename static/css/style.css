@@ -217,9 +217,10 @@ h1 {
     outline-color: var(--tertiary-color-social-media);
 }
 
-button:focus, input:focus, select:focus, textarea:focus {
-    box-shadow: 0 0 7px var(--tertiary-color);
-}
+/* Adds a glow around the outline border  */
+/* button:focus, input:focus, select:focus, textarea:focus {
+    box-shadow: 0 0 7px var(--tertiary-color-social-media);
+} */
 
 
 /* |.... UTILITY CLASSES */
