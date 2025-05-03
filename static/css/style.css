@@ -213,6 +213,15 @@ h1 {
 /* -------------------------------------------------
 |.. COLOR PALETTE */
 
+:focus, :focus-visible {
+    outline-color: var(--tertiary-color-social-media);
+}
+
+button:focus, input:focus, select:focus, textarea:focus {
+    box-shadow: 0 0 7px var(--tertiary-color);
+}
+
+
 /* |.... UTILITY CLASSES */
 
 /* |...... AESTETHIC CLASSES */
