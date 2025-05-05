@@ -2,6 +2,8 @@
 
 Este proyecto es una [página web](https://tadeoriganti.github.io/Top-50-canciones-Instagram-en-Argentina/) sencilla que muestra el top 50 de canciones populares de Instagram. Los datos se obtienen a través de una API y se visualizan en una tabla HTML.
 
+<div align="center"><img width="720px" src="static/img/T50-Prev-Display.png"></div>
+
 ## Funcionalidades Actuales
 
 * Muestra una tabla con el top 50 de canciones.
