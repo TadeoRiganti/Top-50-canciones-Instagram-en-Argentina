@@ -2,6 +2,15 @@
 
 Este documento describe las funcionalidades futuras y las mejoras planificadas para el proyecto del Top 50 de canciones populares de Instagram.
 
+## Fase 0: I+D
+
+* [x] Registrarse como Desarrollador de Meta.
+* [ ] Crear una aplicación de Meta (Caso de uso; Servidor a servidor).
+* [ ] Conseguir un Token de Acceso
+* [ ] Conseguir un Token de Acceso de largo plazo (60 dias).
+* [ ] Llamar a la API de `Music Recommendations`
+* [ ] Revisar que se condiga con las recomendaciones que devuelve la aplicación de Instagram.
+
 ## Fase 1: Funcionalidades Base
 
 * [ ] Mostrar una tabla con el título y autor de las 50 canciones más populares obtenidas de la API.
